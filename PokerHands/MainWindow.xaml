@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PokerHands"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Poker Hands v1.0" Height="350" Width="525">
     <Grid>
-        
+        <Button x:Name="scoreButton" Content="Score Hands" HorizontalAlignment="Left" Height="24" Margin="208,114,0,0" VerticalAlignment="Top" Width="78" Click="button_Click"/>
+        <TextBox x:Name="playerOneTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Player One" VerticalAlignment="Top" Width="120" Margin="40,40,0,0"/>
+        <TextBox x:Name="playerTwoTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Player Two" VerticalAlignment="Top" Width="120" Margin="40,68,0,0"/>
+        <Label x:Name="playerNameLabel" Content="Player Names" HorizontalAlignment="Left" Height="25" Margin="40,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="playerOneCardsTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="AD, KD, QD, JD, 10D" VerticalAlignment="Top" Width="120" Margin="198,40,0,0"/>
+        <TextBox x:Name="playerTwoCardsTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="AH, KH, QH, JH, 10H" VerticalAlignment="Top" Width="120" Margin="198,68,0,0"/>
+        <Label x:Name="cardsLabel" Content="Cards" HorizontalAlignment="Left" Height="25" Margin="198,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="playerOneScoreTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="346,40,0,0" IsEnabled="False"/>
+        <TextBox x:Name="playerTwoScoreTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="346,68,0,0" IsEnabled="False"/>
+        <Label x:Name="scoreLabel" Content="Score" HorizontalAlignment="Left" Height="25" Margin="346,10,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="resultLabel" Content="" HorizontalAlignment="Left" Height="48" Margin="40,162,0,0" VerticalAlignment="Top" Width="426"/>
     </Grid>
 </Window>

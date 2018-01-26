@@ -1,28 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Linq;
 
 namespace PokerHands
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly Solver.Solver _solver = new Solver.Solver();
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            var playerNames = new string[] {playerOneTextBox.Text, playerTwoTextBox.Text};
+            if (playerNames.Any(s => s.Trim() == ""))
+            {
+                resultLabel.Content = "Player Names cannot be blank!";
+                return;
+            }
+            var playerCardStrings = new string[][] {playerOneCardsTextBox.Text.Split(','), playerTwoCardsTextBox.Text.Split(',')};
+            if (playerCardStrings.Any(a => a.Length == 0))
+            {
+                resultLabel.Content = "Player Hands cannot be blank!";
+                return;
+            }
+            if (playerCardStrings.Any(a => a.Length != 5))
+            {
+                resultLabel.Content = "Player Hands must contain five cards and use commas as delimiters.";
+                return;
+            }
+            try
+            {
+                var scoresByPlayer = _solver.GetScoreByPlayer(playerNames, playerCardStrings);
+
+                playerOneScoreTextBox.Text = scoresByPlayer[playerNames[0]].HandType.ToString();
+                playerTwoScoreTextBox.Text = scoresByPlayer[playerNames[1]].HandType.ToString();
+
+                var winner = scoresByPlayer.OrderByDescending(kvp => kvp.Value).First();
+                var loser = scoresByPlayer.OrderByDescending(kvp => kvp.Value).Last();
+
+                resultLabel.Content = winner.Value.CompareTo(loser.Value) == 0 
+                                      ? "Tie Game!" 
+                                      : $"The winner is {winner.Key} with a {winner.Value.HandType.ToString()}";
+            }
+            catch (Exception ex)
+            {
+                resultLabel.Content = "Invalid Input!";
+            }
         }
     }
 }

@@ -37,6 +37,11 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +60,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\PlayingCard.cs" />
+    <Compile Include="Data\Enums\Suit.cs" />
+    <Compile Include="Data\Enums\CardValue.cs" />
+    <Compile Include="E:\Solver.cs">
+      <Link>Solver\Solver.cs</Link>
+    </Compile>
+    <Compile Include="Solver\FiveCardStudScore.cs" />
+    <Compile Include="Data\Enums\HandType.cs" />
+    <Compile Include="Data\Interfaces\IConverter.cs" />
+    <Compile Include="Data\Interfaces\IValidationRules.cs" />
+    <Compile Include="Solver\PlayingCardComparer.cs" />
+    <Compile Include="Solver\PlayingCardConverter.cs" />
+    <Compile Include="Data\PlayingCardHand.cs" />
+    <Compile Include="Solver\PlayingCardHandConverter.cs" />
+    <Compile Include="Solver\PlayingCardStringValidationRules.cs" />
+    <Compile Include="Solver\SingleHandPokerNoJokersValidationRules.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
