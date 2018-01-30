@@ -63,9 +63,6 @@
     <Compile Include="Data\PlayingCard.cs" />
     <Compile Include="Data\Enums\Suit.cs" />
     <Compile Include="Data\Enums\CardValue.cs" />
-    <Compile Include="E:\Solver.cs">
-      <Link>Solver\Solver.cs</Link>
-    </Compile>
     <Compile Include="Solver\FiveCardStudScore.cs" />
     <Compile Include="Data\Enums\HandType.cs" />
     <Compile Include="Data\Interfaces\IConverter.cs" />
@@ -76,6 +73,7 @@
     <Compile Include="Solver\PlayingCardHandConverter.cs" />
     <Compile Include="Solver\PlayingCardStringValidationRules.cs" />
     <Compile Include="Solver\SingleHandPokerNoJokersValidationRules.cs" />
+    <Compile Include="Solver\Solver.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
